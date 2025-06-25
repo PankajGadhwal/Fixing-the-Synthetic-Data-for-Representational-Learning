@@ -1,51 +1,43 @@
-## Project Overview
+## Overview
 
-This project studies and explores the limitations of synthetic data especially data generated using diffusion models for training deep learning models in computer vision. We focus on understanding why such data underperforms in downstream tasks and propose methods to improve its effectiveness. Specifically, we explore **Diffusion Inversion** as a technique to bridge the realism gap between synthetic and real world images.
+This project studies and explores the limitations of synthetic data—particularly that generated through diffusion models—in training deep learning models for computer vision. It focuses on understanding the realism gap between synthetic and real images and proposes methods to improve the utility of synthetic data for representation learning. In particular, it explores **Diffusion Inversion** as a strategy to better align synthetic data distributions with real-world image characteristics.
 
 ---
 
 ## Problem Statement
 
-Deep learning models rely heavily on large, high-quality datasets. However, collecting real-world data is expensive, time-consuming, and often limited by privacy concerns. Synthetic data offers a scalable alternative but introduces a domain gap due to:
+Modern vision models require large volumes of high-quality labeled data. However, real-world data is often expensive to collect, time-consuming to annotate, and restricted by privacy concerns. Synthetic datasets generated through models such as GANs or diffusion-based generators offer scalable alternatives—but they frequently lead to performance degradation due to:
 
-- Loss of geometric fidelity (e.g., misaligned vanishing points)
-- Inconsistent shadows and textures
-- Lack of contextual richness
-- Over-representation of average cases, missing edge-case diversity
+- Lack of geometric fidelity (e.g., misaligned vanishing points)
+- Inconsistent lighting, shadows, and structural cues
+- Lack of rare-case representation
+- Absence of contextual richness
 
-This project aims to enhance synthetic data quality to better support representation learning tasks.
+This project aims to enhance the quality of synthetic datasets for downstream learning tasks, reducing the domain gap that limits their effectiveness.
 
 ---
 
-## Literature Context
+## Literature Review
 
-Key findings from related literature include:
-
-- **Geometric Discrepancies:** Generative models often fail to respect projective geometry, leading to structural inconsistencies.
-- **Representation Limitations:** Synthetic data lacks detailed context, impacting model generalization.
-- **Improvement via Inversion:** Techniques like Diffusion Inversion help align synthetic samples with real image distributions.
-- **Transfer Learning Gaps:** Domain shifts limit the transferability of models trained on synthetic datasets.
-
-**Selected References:**
-- [Shadows Don’t Lie and Lines Can’t Bend](https://projective-geometry.github.io/)
-- [AI-Generated Images as Data Sources](https://arxiv.org/pdf/2310.01830)
-- [Training on Thin Air](https://sites.google.com/view/diffusion-inversion)
-- [Mind the Gap Between Synthetic and Real](https://arxiv.org/pdf/2405.03243)
+- **Geometric Discrepancies:** Generative models often fail to preserve fundamental structures like projective geometry and vanishing points.
+- **Contextual Gaps:** Synthetic data tends to lack nuanced visual and spatial context.
+- **Diffusion Inversion:** Conditioning synthetic image generation on real distributions can improve downstream classification performance.
+- **Transfer Limitations:** Domain shifts between real and synthetic data present challenges in generalization and robustness.
 
 ---
 
 ## Methodology
 
 - Dataset: CIFAR-10 (10 image classes)
-- Generated synthetic datasets using:
+- Synthetic data generation using:
   - Stable Diffusion
-  - Diffusion Inversion
+  - Diffusion Inversion (frozen diffusion model with optimized embeddings)
 - Classifier: ResNet-18
-- Training and evaluation performed separately on:
-  - Real data
-  - Stable Diffusion-generated data
-  - Diffusion Inversion-generated data
-- Grad-CAM and projective geometry tools used to visualize attention and structural integrity
+- Training configurations:
+  - Trained separately on real, Stable Diffusion, and Diffusion Inversion datasets
+  - Combined real + synthetic datasets used to test performance gains
+- Grad-CAM used to analyze spatial attention
+- Projective geometry techniques applied to evaluate structural consistency
 
 ---
 
@@ -59,26 +51,37 @@ Key findings from related literature include:
 | Real + Diffusion Inversion | 86.14             |
 | Real + Stable Diffusion    | 83.94             |
 
-### Additional Observations
-
-- Grad-CAM revealed that models trained on fake images focused more narrowly, indicating a lack of diverse feature learning.
-- Diffusion Inversion produced images that led to significantly better performance than Stable Diffusion.
-- Combining real and synthetic data improved accuracy beyond using real data alone.
-
 ---
 
-## Key Takeaways
+## Notable Results
 
-- Projective geometry and visual attention analysis can reveal deep structural flaws in synthetic datasets.
-- Diffusion Inversion is an effective approach for improving the realism and representational utility of synthetic images.
-- Synthetic data, when properly aligned with real data distributions, can act as a valuable augmentation source in limited data or privacy-sensitive environments.
+- **Diffusion Inversion outperformed Stable Diffusion** in downstream classification accuracy, but still fell short of real data.
+- Combining real and synthetic data improved classification performance, validating the role of well-crafted synthetic augmentation.
+- **Grad-CAM heatmaps** showed that synthetic-trained models had more localized attention, while real data encouraged more spatially distributed features.
+- The **focus score and intensity** of real and inverted images were similar, but attention spread was narrower in synthetic data, indicating a reliance on limited features.
 
 ---
 
 ## Applications and Future Work
 
-- Enhancing performance in domains with limited real data (e.g., medical imaging, autonomous driving)
-- Privacy-preserving training using only synthetic data
-- Integrating Grad-CAM feedback and geometric constraints into future generation pipelines
+- Use in low-data or privacy-restricted domains such as healthcare or autonomous systems
+- Improved synthetic generation guided by visual attention and projective geometry
+- Fine-tuning later layers of models trained on synthetic data using small amounts of real data
+- Broader application of Diffusion Inversion to other datasets and model architectures
 
 ---
+
+## Contributors
+
+- Aayush Prakash Parmar  
+- Pankaj  
+- Vatsal Trivedi  
+
+---
+
+## References
+
+1. Shadows Don’t Lie and Lines Can’t Bend – [projective-geometry.github.io](https://projective-geometry.github.io/)
+2. AI-Generated Images as Data Sources – [arXiv:2310.01830](https://arxiv.org/pdf/2310.01830)
+3. Training on Thin Air – [Diffusion Inversion Site](https://sites.google.com/view/diffusion-inversion)
+4. Mind the Gap Between Synthetic and Real – [arXiv:2405.03243](https://arxiv.org/pdf/2405.03243)
