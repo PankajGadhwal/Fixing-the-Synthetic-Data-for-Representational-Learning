@@ -1,8 +1,7 @@
 ## Overview
 
-This project studies and explores the limitations of synthetic data—particularly that generated through diffusion models—in training deep learning models for computer vision. It focuses on understanding the realism gap between synthetic and real images and proposes methods to improve the utility of synthetic data for representation learning. In particular, it explores **Diffusion Inversion** as a strategy to better align synthetic data distributions with real-world image characteristics.
+This project studies and explores the limitations of synthetic data particularly that generated through diffusion models in training deep learning models for computer vision. It focuses on understanding the realism gap between synthetic and real images and proposes methods to improve the utility of synthetic data for representation learning. In particular, it explores **Diffusion Inversion** as a strategy to better align synthetic data distributions with real-world image characteristics.
 
----
 
 ## Problem Statement
 
@@ -10,12 +9,12 @@ Modern vision models require large volumes of high-quality labeled data. However
 
 - Lack of geometric fidelity (e.g., misaligned vanishing points)
 - Inconsistent lighting, shadows, and structural cues
-- Lack of rare-case representation
+- Lack of rare case representation
 - Absence of contextual richness
 
 This project aims to enhance the quality of synthetic datasets for downstream learning tasks, reducing the domain gap that limits their effectiveness.
 
----
+
 
 ## Literature Review
 
@@ -24,7 +23,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 - **Diffusion Inversion:** Conditioning synthetic image generation on real distributions can improve downstream classification performance.
 - **Transfer Limitations:** Domain shifts between real and synthetic data present challenges in generalization and robustness.
 
----
+
 
 ## Methodology
 
@@ -39,7 +38,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 - Grad-CAM used to analyze spatial attention
 - Projective geometry techniques applied to evaluate structural consistency
 
----
+
 
 ## Results
 
@@ -51,7 +50,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 | Real + Diffusion Inversion | 86.14             |
 | Real + Stable Diffusion    | 83.94             |
 
----
+
 
 ## Notable Results
 
@@ -60,7 +59,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 - **Grad-CAM heatmaps** showed that synthetic-trained models had more localized attention, while real data encouraged more spatially distributed features.
 - The **focus score and intensity** of real and inverted images were similar, but attention spread was narrower in synthetic data, indicating a reliance on limited features.
 
----
+
 
 ## Applications and Future Work
 
@@ -69,7 +68,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 - Fine-tuning later layers of models trained on synthetic data using small amounts of real data
 - Broader application of Diffusion Inversion to other datasets and model architectures
 
----
+
 
 ## Contributors
 
@@ -77,7 +76,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 - Pankaj  
 - Vatsal Trivedi  
 
----
+
 
 ## References
 
