@@ -52,8 +52,6 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 
 
 
-## Notable Results
-
 - **Diffusion Inversion outperformed Stable Diffusion** in downstream classification accuracy, but still fell short of real data.
 - Combining real and synthetic data improved classification performance, validating the role of well-crafted synthetic augmentation.
 - **Grad-CAM heatmaps** showed that synthetic-trained models had more localized attention, while real data encouraged more spatially distributed features.
