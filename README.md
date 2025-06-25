@@ -1,6 +1,6 @@
 ## Project Overview
 
-This project investigates the limitations of synthetic data—especially data generated using diffusion models—for training deep learning models in computer vision. We focus on understanding why such data underperforms in downstream tasks and propose methods to improve its effectiveness. Specifically, we explore **Diffusion Inversion** as a technique to bridge the realism gap between synthetic and real-world images.
+This project studies and explores the limitations of synthetic data especially data generated using diffusion models for training deep learning models in computer vision. We focus on understanding why such data underperforms in downstream tasks and propose methods to improve its effectiveness. Specifically, we explore **Diffusion Inversion** as a technique to bridge the realism gap between synthetic and real world images.
 
 ---
 
