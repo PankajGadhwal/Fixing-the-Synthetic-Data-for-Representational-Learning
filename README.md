@@ -69,11 +69,11 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 
 
 ## Contributors
-
-- Aayush Prakash Parmar  
-- Pankaj  
+  
+- Pankaj
+- Aayush Prakash Parmar
 - Vatsal Trivedi  
-
+- Astitva Aryan
 
 
 ## References
