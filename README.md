@@ -94,6 +94,11 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 - Apply refined synthetic data for domain adaptation in low-data areas like medical or autonomous driving.
 - Train in privacy-sensitive domains using synthetic data to avoid exposing real personal information.
 
+## Credits
+
+Diffusion Inversion images used in this project were generated using the [turbo-edit](https://github.com/GiilDe/turbo-edit) repository by [GiilDe](https://github.com/GiilDe). The repository provides a method for generating counterfactual and manipulated images using diffusion-based image editing.
+
+We acknowledge and thank the original author for open-sourcing the implementation.
 
 
 ## Contributors
