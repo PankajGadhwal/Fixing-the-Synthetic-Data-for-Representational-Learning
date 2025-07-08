@@ -80,19 +80,19 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 
 
 
-- **Diffusion Inversion outperformed Stable Diffusion** in downstream classification accuracy but still fell short of real data.
-- Combining real and synthetic data improved classification performance, validating the role of well-crafted synthetic augmentation.
-- **Grad-CAM heatmaps** showed that synthetic-trained models had more localized attention, while real data encouraged more spatially distributed features.
-- The **focus score and intensity** of real and inverted images were similar, but attention spread was narrower in synthetic data, indicating a reliance on limited features.
+- Diffusion Inversion performed better than Stable Diffusion but worse than the real dataset, indicating that while it generates more realistic samples than Stable Diffusion, it still doesn't match the quality     of real data.
+- The lower performance of Stable Diffusion is likely due to its inability to accurately capture the true data distribution, leading to less useful synthetic samples for
+  training.
+- Combining real data with synthetic data (data augmentation) led to higher accuracies, showing that well-crafted synthetic data can enhance model performance when used alongside real examples.
 
 
 
 ## Applications and Future Work
 
-- Use in low-data or privacy-restricted domains such as healthcare or autonomous systems
-- Improved synthetic generation guided by visual attention and projective geometry
-- Fine-tuning later layers of models trained on synthetic data using small amounts of real data
-- Broader application of Diffusion Inversion to other datasets and model architectures
+- Fine-tune only the later layers of synthetic-trend models to close the accuracy gap with minimal real data.
+- Use projective geometry and Grad-CAM feedback to guide better synthetic generation.
+- Apply refined synthetic data for domain adaptation in low-data areas like medical or autonomous driving.
+- Train in privacy-sensitive domains using synthetic data to avoid exposing real personal information.
 
 
 
