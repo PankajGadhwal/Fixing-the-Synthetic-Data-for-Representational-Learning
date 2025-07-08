@@ -5,7 +5,7 @@ This project studies and explores the limitations of synthetic data particularly
 
 ## Problem Statement
 
-Modern vision models require large volumes of high-quality labelled data. However, real-world data is often expensive to collect, time-consuming to annotate, and restricted by privacy concerns. Synthetic datasets generated through models such as GANs or diffusion-based generators offer scalable alternatives—but they frequently lead to performance degradation due to:
+Modern vision models require large volumes of high-quality labelled data. However, real-world data is often expensive to collect, time-consuming to annotate, and restricted by privacy concerns. Synthetic datasets generated through models such as GANs or diffusion-based generators offer scalable alternatives but they frequently lead to performance degradation due to:
 
 - Lack of geometric fidelity (e.g., misaligned vanishing points)
 - Inconsistent lighting, shadows, and structural cues
@@ -30,7 +30,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 - Dataset: CIFAR-10 (10 image classes)
 - Synthetic data generation using:
   - Stable Diffusion
-  - Diffusion Inversion (frozen diffusion model with optimized embeddings)
+  - Diffusion Inversion 
 - Classifier: ResNet-18
 - Training configurations:
   - Trained separately on real, Stable Diffusion, and Diffusion Inversion datasets
@@ -42,11 +42,31 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 
 ## Diffusion Inversion
 
-- Adapts a frozen, pretrained diffusion model using a small set of trainable embedding vectors.
+- Adapts a frozen, pre-trained diffusion model using a small set of trainable embedding vectors.
 - Embeddings are injected into the U-Net at each timestep during the reverse diffusion process.
 - Only the embeddings are optimised using gradient descent; model weights remain unchanged.
   ![image](https://github.com/user-attachments/assets/40205a86-62fd-4bfa-acda-aaa7510227d3)
-  ![Screenshot 2025-07-08 094441](https://github.com/user-attachments/assets/22c9eb62-8b02-4401-aa1f-2d47f0103a84)
+- Minimises denoising loss between predicted and actual noise to align generations with real data.
+- Enables the model to generate more realistic images while preserving its original architecture.
+  
+
+
+## Visualising the Realism Gap
+
+![image](https://github.com/user-attachments/assets/5168b187-2eef-40e5-9b23-5df4df555c6e)
+
+
+
+## Analysing Projective Geometry
+
+ ![image](https://github.com/user-attachments/assets/381929ab-d26f-4c84-a8a8-69379efd5810)
+- Vanishing points are key elements in projective geometry, where parallel lines in 3D space appear to converge in a 2D image, providing information about the spatial structure, depth, and orientation of scenes.
+| Dataset              | Focus Score | Attention Spread | Intensity |
+|----------------------|-------------|------------------|-----------|
+| Real Images          | 0.439       | 0.4177           | 0.439     |
+| Fake Inverted Images | 0.4361      | 0.4068           | 0.4361    |
+- Grad-CAM is a technique used to visualise which areas of an input image highlight important regions for a model's prediction, by generating heat maps. Warmer colours (red/yellow) in the heat maps indicate a      stronger influence.
+- Focus Score and Intensity are almost identical, suggesting that the model is equally confident for both image types. Attention Spread is slightly lower for fake images, indicating that attention is slightly      more concentrated in certain regions for fake images. This suggests that fake images rely more on localised features.
 
 
 
@@ -62,7 +82,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 
 
 
-- **Diffusion Inversion outperformed Stable Diffusion** in downstream classification accuracy, but still fell short of real data.
+- **Diffusion Inversion outperformed Stable Diffusion** in downstream classification accuracy but still fell short of real data.
 - Combining real and synthetic data improved classification performance, validating the role of well-crafted synthetic augmentation.
 - **Grad-CAM heatmaps** showed that synthetic-trained models had more localized attention, while real data encouraged more spatially distributed features.
 - The **focus score and intensity** of real and inverted images were similar, but attention spread was narrower in synthetic data, indicating a reliance on limited features.
