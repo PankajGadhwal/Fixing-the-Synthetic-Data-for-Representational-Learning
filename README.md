@@ -28,9 +28,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 ## Methodology
 
 - Dataset: CIFAR-10 (10 image classes)
-- Synthetic data generation using:
-  - Stable Diffusion
-  - Diffusion Inversion 
+- Synthetic data generation using Stable Diffusion and Diffusion Inversion 
 - Classifier: ResNet-18
 - Training configurations:
   - Trained separately on real, Stable Diffusion, and Diffusion Inversion datasets
@@ -61,7 +59,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 
  ![image](https://github.com/user-attachments/assets/381929ab-d26f-4c84-a8a8-69379efd5810)
 - Vanishing points are key elements in projective geometry, where parallel lines in 3D space appear to converge in a 2D image, providing information about the spatial structure, depth, and orientation of scenes.
-| Dataset              | Focus Score | Attention Spread | Intensity |
+-| Dataset              | Focus Score | Attention Spread | Intensity |
 |----------------------|-------------|------------------|-----------|
 | Real Images          | 0.439       | 0.4177           | 0.439     |
 | Fake Inverted Images | 0.4361      | 0.4068           | 0.4361    |
