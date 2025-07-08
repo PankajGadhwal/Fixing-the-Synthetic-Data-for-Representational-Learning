@@ -40,6 +40,16 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 
 
 
+## Diffusion Inversion
+
+- Adapts a frozen, pretrained diffusion model using a small set of trainable embedding vectors.
+- Embeddings are injected into the U-Net at each timestep during the reverse diffusion process.
+- Only the embeddings are optimised using gradient descent; model weights remain unchanged.
+  ![image](https://github.com/user-attachments/assets/40205a86-62fd-4bfa-acda-aaa7510227d3)
+  ![Screenshot 2025-07-08 094441](https://github.com/user-attachments/assets/22c9eb62-8b02-4401-aa1f-2d47f0103a84)
+
+
+
 ## Results
 
 | Training Set                | Test Accuracy (%) |
