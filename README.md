@@ -62,8 +62,6 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 - Grad-CAM is a technique used to visualise which areas of an input image highlight important regions for a model's prediction, by generating heat maps. Warmer colours (red/yellow) in the heat maps indicate a      stronger influence.
 - Focus Score and Intensity are almost identical, suggesting that the model is equally confident for both image types. Attention Spread is slightly lower for fake images, indicating that attention is slightly      more concentrated in certain regions for fake images. This suggests that fake images rely more on localised features.
 
-### Focus Analysis Metrics
-
 | Dataset              | Focus Score | Attention Spread | Intensity |
 |----------------------|-------------|------------------|-----------|
 | Real Images          | 0.439       | 0.4177           | 0.439     |
