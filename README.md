@@ -27,7 +27,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 
 ## Methodology
 
-- Dataset: CIFAR-10 (10 image classes)
+- Dataset: CIFAR-10/CIFAKE
 - Synthetic data generation using Stable Diffusion and Diffusion Inversion 
 - Classifier: ResNet-18
 - Training configurations:
