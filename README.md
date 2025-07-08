@@ -1,11 +1,11 @@
 ## Overview
 
-This project studies and explores the limitations of synthetic data particularly that generated through diffusion models in training deep learning models for computer vision. It focuses on understanding the realism gap between synthetic and real images and proposes methods to improve the utility of synthetic data for representation learning. In particular, it explores **Diffusion Inversion** as a strategy to better align synthetic data distributions with real-world image characteristics.
+This project studies and explores the limitations of synthetic data particularly that generated through diffusion models in training deep learning models for computer vision. It focuses on understanding the realism gap between synthetic and real images and proposes methods to improve the utility of synthetic data for representation learning. In particular, it explores Diffusion Inversion as a strategy to better align synthetic data distributions with real-world image characteristics.
 
 
 ## Problem Statement
 
-Modern vision models require large volumes of high-quality labeled data. However, real-world data is often expensive to collect, time-consuming to annotate, and restricted by privacy concerns. Synthetic datasets generated through models such as GANs or diffusion-based generators offer scalable alternatives—but they frequently lead to performance degradation due to:
+Modern vision models require large volumes of high-quality labelled data. However, real-world data is often expensive to collect, time-consuming to annotate, and restricted by privacy concerns. Synthetic datasets generated through models such as GANs or diffusion-based generators offer scalable alternatives—but they frequently lead to performance degradation due to:
 
 - Lack of geometric fidelity (e.g., misaligned vanishing points)
 - Inconsistent lighting, shadows, and structural cues
