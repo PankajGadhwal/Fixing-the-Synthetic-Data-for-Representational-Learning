@@ -60,12 +60,6 @@ This project aims to enhance the quality of synthetic datasets for downstream le
  ![image](https://github.com/user-attachments/assets/381929ab-d26f-4c84-a8a8-69379efd5810)
 - Vanishing points are key elements in projective geometry, where parallel lines in 3D space appear to converge in a 2D image, providing information about the spatial structure, depth, and orientation of scenes.
 - Grad-CAM is a technique used to visualise which areas of an input image highlight important regions for a model's prediction, by generating heat maps. Warmer colours (red/yellow) in the heat maps indicate a      stronger influence.
-- Focus Score and Intensity are almost identical, suggesting that the model is equally confident for both image types. Attention Spread is slightly lower for fake images, indicating that attention is slightly      more concentrated in certain regions for fake images. This suggests that fake images rely more on localised features.
-
-| Dataset              | Focus Score | Attention Spread | Intensity |
-|----------------------|-------------|------------------|-----------|
-| Real Images          | 0.439       | 0.4177           | 0.439     |
-| Fake Inverted Images | 0.4361      | 0.4068           | 0.4361    |
 
 
 ## Results
@@ -105,7 +99,7 @@ This project aims to enhance the quality of synthetic datasets for downstream le
 
 
 
-## Achnowledgment
+## Acknowledgment
 
 Diffusion Inversion images used in this project were generated using the [turbo-edit](https://github.com/GiilDe/turbo-edit) repository by [GiilDe](https://github.com/GiilDe). The repository provides a method for generating counterfactual and manipulated images using diffusion-based image editing.
 
